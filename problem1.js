@@ -3,11 +3,10 @@
 // ("Car 33 is a *car year goes here* *car make goes here* *car model goes here*");
 
 export function carInfobyID(inventory) {
-  let targetCar = inventory.reduce((targetObj, curObj) => {
-    if (curObj.id === 33) {
-      targetObj = curObj;
+  let targetCar = inventory.find((carObj) => {
+    if (carObj.id === 33) {
+      return carObj;
     }
-    return targetObj;
-  }, {});
+  });
   return `Car 33 is a ${targetCar.car_year} ${targetCar.car_make} ${targetCar.car_model}`;
 }
